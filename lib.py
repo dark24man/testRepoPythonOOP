@@ -48,7 +48,7 @@ class Chess:
         return object.__getattribute__(self, item)
 
     def __setattr__(self, key, value):
-        if key == '_Chess__x' or key == '_Chess_y':
+        if key == '_Chess__x' or key == '_Chess__y':
             if not self.testCoor(value):
                 raise Exception('no')
         object.__setattr__(self,key,value)
@@ -67,3 +67,51 @@ class Chess:
     @staticmethod
     def gip(x,y):
         return (x**2 + y**2)**0.5
+
+
+class User:
+
+
+    __name = ''
+    __id = 0
+    __balance = 0
+
+    def __init__(self, object=None):
+        if object is None:
+            self.__id = 0
+        else:
+            self.__id = object.__id + 1
+        self.__name = f'user{self.__id}'
+
+    @property
+    def Name(self):
+        return  self.__name
+
+    @Name.setter
+    def Name(self, name):
+        self.__name = name
+
+    @property
+    def Balance(self):
+        return  self.__balance
+
+    @Balance.setter
+    def Balance(self, balance):
+        self.__balance = balance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
